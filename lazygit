@@ -69,7 +69,7 @@ function commit_validation
 }
 ### Main
 
-echo "$@"
+echo "$@[1]"
 
 response=
 
