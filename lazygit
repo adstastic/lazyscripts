@@ -68,6 +68,12 @@ function commit_validation
   fi
 }
 ### Main
+
+for SOME_VAR in "$@"
+do
+    echo "$SOME_VAR"
+done;
+
 response=
 
 if [ "$1" ]; then
@@ -89,7 +95,7 @@ if [ "$1" ]; then
         help
     elif [ -z "$2" ]; then
         commit_validation
-    else 
+    else
 	 lazygit $1 $2
     fi
 else
