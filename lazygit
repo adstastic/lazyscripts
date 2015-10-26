@@ -69,10 +69,7 @@ function commit_validation
 }
 ### Main
 
-for SOME_VAR in "$@"
-do
-    echo "${@[0]}"
-done;
+echo "$@[1]"
 
 response=
 
