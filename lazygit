@@ -71,8 +71,10 @@ function commit_validation
 
 for SOME_VAR in "$@"
 do
-    echo "${SOME_VAR}"
+    echo "$SOME_VAR"
 done;
+
+echo "$@" | echo "$1"
 
 response=
 
