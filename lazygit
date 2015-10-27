@@ -49,7 +49,8 @@ function commit_validation
   printf "No remote specified. Push to master? (y/n) > "
   read response
   if [ "$response" = "y" ]; then
-      lazygit "$COMMIT_MESSAGE" master
+      REMOTE = master
+      lazygit "$COMMIT_MESSAGE" "$REMOTE"
       terminate 0
   else
       printf "Please enter the remote to push to: "
