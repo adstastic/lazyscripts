@@ -6,20 +6,15 @@ normal=$(tput sgr0)
 function lazygit
 {
       echo "Lazygit running..."
-      echo "$1"
-     git add .
-     git commit -a -m "$COMMIT_MESSAGE"
-     git push origin "$2"
+      git add .
+      git commit -a -m "$COMMIT_MESSAGE"
+      git push origin "$REMOTE"
 }
 
 function terminate
 {
     echo "\nExiting program. $arg1"
-    if [ "$arg1" = 0 ]; then
         exit 0;
-    else
-        exit 1;
-    fi
 }
 
 function setup
@@ -71,13 +66,11 @@ function commit_validation
 
 COMMIT_MESSAGE=$(echo "$@" | echo "$1")
 REMOTE=$(echo "$@" | echo "$2")
-echo "commit message: $COMMIT_MESSAGE"
-echo "remote: $REMOTE"
 
 response=
 
-if [ "$1" ]; then
-    if [ "$1" = "setup" ]; then
+if [ "$COMMIT_MESSAGE" ]; then
+    if [ "$COMMIT_MESSAGE" = "setup" ]; then
         printf "Setup lazygit? (y/n) > "
         read response
         if [ "$response" = "y" ]; then
@@ -85,18 +78,18 @@ if [ "$1" ]; then
         else
             printf "Do you want 'setup' as your commit message, then? (y/n) > "
             read response
-            if [ "$response" = "y" && -z "$2"]; then
+            if [ "$response" = "y" && -z "$REMOTE"]; then
                 commit_validation
             else
                 terminate 1
             fi
         fi
-    elif [ "$1" = "help" ]; then
+    elif [ "$COMMIT_MESSAGE" = "help" ]; then
         help
-    elif [ -z "$2" ]; then
+    elif [ -z "$REMOTE" ]; then
         commit_validation
     else
-	 lazygit $1 $2
+	 lazygit "$COMMIT_MESSAGE" "$REMOTE"
     fi
 else
     printf "No commands specified. Do you want to see lazygit usage? (y/n) > "
