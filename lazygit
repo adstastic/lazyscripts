@@ -69,7 +69,7 @@ function commit_validation
 }
 ### Main
 
-COMMIT MESSAGE = echo "$@" | echo "$1" 
+COMMIT_MESSAGE = echo "$@" | echo "$1" 
 echo "$COMMIT_MESSAGE"
 
 response=
