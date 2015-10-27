@@ -69,12 +69,8 @@ function commit_validation
 }
 ### Main
 
-for SOME_VAR in "$@"
-do
-    echo "$SOME_VAR"
-done;
-
-echo "$@" | echo "$1"
+echo "$@" | echo "$1" | $COMMIT_MESSAGE = $1
+echo $COMMIT_MESSAGE
 
 response=
 
