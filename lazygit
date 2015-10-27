@@ -8,7 +8,7 @@ function lazygit
       echo "Lazygit running..."
       echo "$1"
      git add .
-     git commit -a -m "$1"
+     git commit -a -m "$COMMIT_MESSAGE"
      git push origin "$2"
 }
 
@@ -70,7 +70,9 @@ function commit_validation
 ### Main
 
 COMMIT_MESSAGE=$(echo "$@" | echo "$1")
-echo "$COMMIT_MESSAGE"
+REMOTE=$(echo "$@" | echo "$2")
+echo "commit message: $COMMIT_MESSAGE"
+echo "remote: $REMOTE"
 
 response=
 
