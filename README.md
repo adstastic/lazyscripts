@@ -3,7 +3,7 @@ Scripts to do normal things for lazy people
 
 ## Lazygit
 Tired of the holy trinity of `git add` `git commit` `git push`?
-This **tries** to make that simpler. 
+This *tries* to make that simpler. 
 
 ### Usage
 To symlink to ``/usr/local/bin`` (optional):
