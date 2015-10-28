@@ -7,8 +7,8 @@ function lazygit
 {
       echo "Lazygit running..."
       git add .
-      git commit -a -m "$COMMIT_MESSAGE"
-      git push origin "$REMOTE"
+      git commit -a -m "$arg1"
+      git push origin "$arg2"
 }
 
 function terminate
@@ -49,8 +49,7 @@ function commit_validation
   printf "No remote specified. Push to master? (y/n) > "
   read response
   if [ "$response" = "y" ]; then
-      REMOTE = master
-      lazygit "$COMMIT_MESSAGE" "$REMOTE"
+      lazygit $COMMIT_MESSAGE ${master}
       terminate 0
   else
       printf "Please enter the remote to push to: "
