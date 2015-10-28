@@ -1,6 +1,8 @@
 # Lazyscripts
 Scripts to do normal things for lazy people
 
+> Note: There are bugs. I'm working on it.
+
 ## Lazygit
 Tired of the holy trinity of `git add` `git commit` `git push`?
 This *tries* to make that simpler. 
