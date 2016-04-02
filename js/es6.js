@@ -1,12 +1,12 @@
 'use strict';
 const _ = require('lodash');
-// let vs var, with promises and fat-arrow syntax
+// let vs var, with promises, const, and fat-arrow syntax
 (() => {
-
-    var item = {};
+    // item's value is immutable, but it's properties can be mutated
+    const item = {};
     item.let = {};
     item.var = {};
-    var then = 0;
+    let then = 0;
 
     // using Promise to make sure the assignment loops have finished before calling values
     // normally would assign promise to variable and execute as `promiseVar.then(...)` 

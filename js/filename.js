@@ -5,14 +5,14 @@ const prompt = require('prompt'),
 
 switch(process.argv[2]) {
     case '-string':
-        var result = {};
+        const result = {};
         result.seperators = process.argv[3],
         result.terminator = process.argv[4],
         result.string     = process.argv[5];
         cmd_args(result);
         break;
     case '-path':
-        var result = {};
+        const result = {};
         result.seperators = process.argv[3],
         result.terminator = process.argv[4],
         result.path     = process.argv[5];
@@ -37,7 +37,7 @@ function cmd_args(result) {
 
 function split(seperators, terminator, string) {
     let substring = string.trim().split(terminator)[0];
-    var array = _.map(substring.split(new RegExp('['+seperators+']')), (el) => {
+    let array = _.map(substring.split(new RegExp('['+seperators+']')), (el) => {
         return el.trim();
     });
     return array;
